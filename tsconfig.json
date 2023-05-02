@@ -4,10 +4,13 @@
     "module": "CommonJS",
     "declaration": true,
     "outDir": "./dist",
-    "lib": [ "es2015" ],
-    "strict": true,
+    "lib": ["es2015"],
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "strict": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
   },
   "include": [
     "src",

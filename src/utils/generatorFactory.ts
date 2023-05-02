@@ -1,13 +1,18 @@
 #!/usr/bin/env node
 
 import Scaffold from "scaffold-generator";
-import { render } from "mustache";
+import Mustache from "mustache";
+
+// Use {{{{  }}}} as interpolation tag.
+Mustache.tags = ["{{{{", "}}}}"];
+
+// Don't escape values.
+Mustache.escape = (v) => v;
 
 const createGenerator = (data: Record<string, string>) =>
   new Scaffold({
     data,
-    render: (template: string, view: string) =>
-      render(template, view, undefined, ["{{{{", "}}}}"]),
+    render: Mustache.render,
   });
 
 export default createGenerator;

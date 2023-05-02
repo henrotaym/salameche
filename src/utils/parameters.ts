@@ -14,17 +14,23 @@ export const getCommandName: () => string = () => {
   return commandName;
 };
 
-export const getCurrentPath = (appended?: string) =>
-  resolve(process.cwd(), appended || "");
+// export const getCurrentPath = (appended?: string) =>
+//   resolve(process.cwd(), appended || "");
 
-export const getStubsPath = (appended?: string) =>
-  resolve(
-    getCurrentPath(),
-    "node_modules",
-    "@henrotaym/salameche",
-    "stubs",
-    appended || ""
-  );
+// export const getStubsPath = (appended?: string) =>
+//   resolve(
+//     getCurrentPath(),
+//     "node_modules",
+//     "@henrotaym/salameche",
+//     "stubs",
+//     appended || ""
+//   );
+
+export const getCurrentPath = (...paths: string[]) =>
+  resolve(process.cwd(), ...paths);
+
+export const getStubsPath = (...paths: string[]) =>
+  resolve(getCurrentPath(), "stubs", ...paths);
 
 export const getValues: (acceptedArgs: string[]) => Record<string, string> = (
   acceptedArgs: string[]

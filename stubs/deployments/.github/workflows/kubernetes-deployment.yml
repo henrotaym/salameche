@@ -3,7 +3,7 @@ name: kubernetes-{{{{env}}}}-deployment
 on:
   push:
     branches:
-      - [[branch]]
+      - {{{{branch}}}}
 
 jobs:
   deployment:
